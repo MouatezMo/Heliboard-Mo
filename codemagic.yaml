@@ -1,0 +1,55 @@
+workflows:
+  heliboard-mo-debug:
+    name: Heliboard-Mo Debug Build
+    instance_type: linux_x2
+    max_build_duration: 60
+    environment:
+      java: 17
+      android: 34
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: 'main'
+          include: true
+          source: true
+    scripts:
+      - name: Set gradlew executable
+        script: chmod +x gradlew
+      - name: Build debug APK
+        script: |
+          ./gradlew :app:assembleDebug --no-daemon
+    artifacts:
+      - app/build/outputs/apk/**/*.apk
+      - app/build/outputs/apk/**/output-metadata.json
+    publishing:
+      email:
+        recipients:
+          - $EMAIL
+
+  heliboard-mo-release:
+    name: Heliboard-Mo Release Build
+    instance_type: linux_x2
+    max_build_duration: 90
+    environment:
+      java: 17
+      android: 34
+    triggering:
+      events:
+        - tag
+      tag_patterns:
+        - pattern: 'v*'
+          include: true
+    scripts:
+      - name: Set gradlew executable
+        script: chmod +x gradlew
+      - name: Build release APK
+        script: |
+          ./gradlew :app:assembleRelease --no-daemon
+    artifacts:
+      - app/build/outputs/apk/**/*.apk
+      - app/build/outputs/apk/**/output-metadata.json
+    publishing:
+      email:
+        recipients:
+          - $EMAIL
