@@ -157,6 +157,8 @@ class KeyboardIconsSet private constructor() {
                     ToolbarKey.PAGE_END -> R.drawable.ic_page_end
                     ToolbarKey.SPLIT -> R.drawable.ic_ime_switcher
                     ToolbarKey.BACKGROUND_GATHERING -> R.drawable.ic_settings_gesture
+
+                else -> null
                 })
             }
         } }
@@ -220,6 +222,8 @@ class KeyboardIconsSet private constructor() {
                     ToolbarKey.PAGE_END -> R.drawable.ic_page_end
                     ToolbarKey.SPLIT -> R.drawable.ic_ime_switcher
                     ToolbarKey.BACKGROUND_GATHERING -> R.drawable.ic_settings_gesture
+
+                else -> null
                 })
             }
         } }
@@ -283,6 +287,8 @@ class KeyboardIconsSet private constructor() {
                     ToolbarKey.PAGE_END -> R.drawable.ic_page_end_rounded
                     ToolbarKey.SPLIT -> R.drawable.ic_ime_switcher
                     ToolbarKey.BACKGROUND_GATHERING -> R.drawable.ic_settings_gesture
+
+                else -> null
                 })
             }
         } }
@@ -301,6 +307,33 @@ class KeyboardIconsSet private constructor() {
 
         val instance = KeyboardIconsSet()
         var needsReload = false
+    }
+
+
+
+
+
+
+    private val keyboardIconsLucide by lazy {
+        hashMapOf(
+            "autocorrect" to R.drawable.ic_lucide_autocorrect, "background_gathering" to R.drawable.ic_lucide_background_gathering,
+            "bin" to R.drawable.ic_lucide_bin, "clear_clipboard" to R.drawable.ic_lucide_clear_clipboard,
+            "clipboard" to R.drawable.ic_lucide_clipboard, "close_history" to R.drawable.ic_lucide_close_history,
+            "copy" to R.drawable.ic_lucide_copy, "cut" to R.drawable.ic_lucide_cut,
+            "delete_key" to R.drawable.ic_lucide_delete, "done_key" to R.drawable.ic_lucide_done,
+            "dpad" to R.drawable.ic_lucide_dpad, "emoji" to R.drawable.ic_lucide_emoji,
+            "enter_key" to R.drawable.ic_lucide_enter, "go_key" to R.drawable.ic_lucide_go,
+            "language_switch_key" to R.drawable.ic_lucide_languages, "next_key" to R.drawable.ic_lucide_next,
+            "numpad" to R.drawable.ic_lucide_numpad, "paste" to R.drawable.ic_lucide_paste,
+            "previous_key" to R.drawable.ic_lucide_previous, "redo" to R.drawable.ic_lucide_redo,
+            "search_key" to R.drawable.ic_lucide_search, "select_all" to R.drawable.ic_lucide_select_all,
+            "select_word" to R.drawable.ic_lucide_select_word, "send_key" to R.drawable.ic_lucide_send,
+            "settings" to R.drawable.ic_lucide_settings, "shift_key" to R.drawable.ic_lucide_shift,
+            "shift_key_shifted" to R.drawable.ic_lucide_shift, "shift_key_locked" to R.drawable.ic_lucide_shift_locked,
+            "space_key_for_number_layout" to R.drawable.ic_lucide_space, "tab_key" to R.drawable.ic_lucide_tab,
+            "toolbar_key" to R.drawable.ic_lucide_toolbar, "undo" to R.drawable.ic_lucide_undo,
+            "zwj_key" to R.drawable.ic_lucide_zwj, "zwnj_key" to R.drawable.ic_lucide_zwnj
+        )
     }
 
 }
