@@ -25,6 +25,7 @@ class KeyboardIconsSet private constructor() {
         val defaultIds = when (iconStyle) {
             KeyboardTheme.STYLE_HOLO -> keyboardIconsHolo
             KeyboardTheme.STYLE_ROUNDED -> keyboardIconsRounded
+        KeyboardTheme.STYLE_LUCIDE -> keyboardIconsLucide
             else -> keyboardIconsMaterial
         }
         val overrideIds = customIconIds(context, prefs)
@@ -127,7 +128,6 @@ class KeyboardIconsSet private constructor() {
                     ToolbarKey.VOICE -> R.drawable.sym_keyboard_voice_holo
                     ToolbarKey.CLIPBOARD -> R.drawable.sym_keyboard_clipboard_holo
                     ToolbarKey.NUMPAD -> R.drawable.sym_keyboard_numpad_key_holo
-                    ToolbarKey.DPAD -> R.drawable.ic_dpad
                     ToolbarKey.UNDO -> R.drawable.ic_undo
                     ToolbarKey.REDO -> R.drawable.ic_redo
                     ToolbarKey.SETTINGS -> R.drawable.sym_keyboard_settings_holo
@@ -191,7 +191,6 @@ class KeyboardIconsSet private constructor() {
                     ToolbarKey.VOICE -> R.drawable.sym_keyboard_voice_lxx
                     ToolbarKey.CLIPBOARD -> R.drawable.sym_keyboard_clipboard_lxx
                     ToolbarKey.NUMPAD -> R.drawable.sym_keyboard_numpad_key_lxx
-                    ToolbarKey.DPAD -> R.drawable.ic_dpad
                     ToolbarKey.UNDO -> R.drawable.ic_undo
                     ToolbarKey.REDO -> R.drawable.ic_redo
                     ToolbarKey.SETTINGS -> R.drawable.sym_keyboard_settings_lxx
@@ -255,7 +254,6 @@ class KeyboardIconsSet private constructor() {
                     ToolbarKey.VOICE -> R.drawable.sym_keyboard_voice_rounded
                     ToolbarKey.CLIPBOARD -> R.drawable.sym_keyboard_clipboard_rounded
                     ToolbarKey.NUMPAD -> R.drawable.sym_keyboard_numpad_key_lxx
-                    ToolbarKey.DPAD -> R.drawable.ic_dpad_rounded
                     ToolbarKey.UNDO -> R.drawable.ic_undo_rounded
                     ToolbarKey.REDO -> R.drawable.ic_redo_rounded
                     ToolbarKey.SETTINGS -> R.drawable.sym_keyboard_settings_rounded
@@ -304,4 +302,5 @@ class KeyboardIconsSet private constructor() {
         val instance = KeyboardIconsSet()
         var needsReload = false
     }
+
 }
