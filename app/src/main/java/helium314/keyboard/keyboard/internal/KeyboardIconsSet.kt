@@ -158,7 +158,7 @@ class KeyboardIconsSet private constructor() {
                     ToolbarKey.SPLIT -> R.drawable.ic_ime_switcher
                     ToolbarKey.BACKGROUND_GATHERING -> R.drawable.ic_settings_gesture
 
-                else -> null
+                else -> keyboardIconsMaterial[it.name.lowercase(java.util.Locale.US)] ?: 0
                 })
             }
         } }
@@ -223,7 +223,7 @@ class KeyboardIconsSet private constructor() {
                     ToolbarKey.SPLIT -> R.drawable.ic_ime_switcher
                     ToolbarKey.BACKGROUND_GATHERING -> R.drawable.ic_settings_gesture
 
-                else -> null
+                else -> keyboardIconsMaterial[it.name.lowercase(java.util.Locale.US)] ?: 0
                 })
             }
         } }
@@ -288,7 +288,7 @@ class KeyboardIconsSet private constructor() {
                     ToolbarKey.SPLIT -> R.drawable.ic_ime_switcher
                     ToolbarKey.BACKGROUND_GATHERING -> R.drawable.ic_settings_gesture
 
-                else -> null
+                else -> keyboardIconsMaterial[it.name.lowercase(java.util.Locale.US)] ?: 0
                 })
             }
         } }
