@@ -16,41 +16,13 @@ workflows:
         script: chmod +x gradlew
       - name: Build debug APK (arm64 only)
         script: |
-          ./gradlew :app:assembleDebug \
-            -Pandroid.injected.build.abi=arm64-v8a \
-            --stacktrace \
-            2>&1 | tee build.log
+          ./gradlew :app:assembleDebug -Pandroid.injected.build.abi=arm64-v8a --console=plain > build.log 2>&1
           if [ ${PIPESTATUS[0]} -ne 0 ]; then
-            echo "=== Kotlin/C++ Errors ==="
-            grep -A 5 -E "(e:|error:|FAILED|Exception)" build.log || cat build.log
-            exit 1
-          fi
-    artifacts:
-      - app/build/outputs/apk/**/arm64-v8a/*.apk
-
-  heliboard-mo-release:
-    name: Heliboard-Mo Release
-    max_build_duration: 90
-    environment:
-      java: 17
-    triggering:
-      events:
-        - tag
-      tag_patterns:
-        - pattern: 'v*'
-          include: true
-    scripts:
-      - name: Make gradlew executable
-        script: chmod +x gradlew
-      - name: Build release APK (arm64 only)
-        script: |
-          ./gradlew :app:assembleRelease \
-            -Pandroid.injected.build.abi=arm64-v8a \
-            --stacktrace \
-            2>&1 | tee build.log
-          if [ ${PIPESTATUS[0]} -ne 0 ]; then
-            echo "=== Kotlin/C++ Errors ==="
-            grep -A 5 -E "(e:|error:|FAILED|Exception)" build.log || cat build.log
+            echo "========================================"
+            echo "=== KOTLIN COMPILATION ERRORS FOUND ==="
+            echo "========================================"
+            grep "^e: " build.log
+            echo "========================================"
             exit 1
           fi
     artifacts:
